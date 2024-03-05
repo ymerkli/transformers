@@ -852,7 +852,7 @@ class TFData2VecVisionMainLayer(keras.layers.Layer):
         if getattr(self, "layernorm", None) is not None:
             if hasattr(self.layernorm, "name"):
                 with tf.name_scope(self.layernorm.name):
-                    self.layernorm.build((None, self.config.hidden_size))
+                    self.layernorm.build((None, None, self.config.hidden_size))
         if getattr(self, "pooler", None) is not None:
             with tf.name_scope(self.pooler.name):
                 self.pooler.build(None)
